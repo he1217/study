@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.he.study.mybatis.entity.mapper.ActivityRuleMapper">
+  <resultMap id="BaseResultMap" type="com.he.study.mybatis.entity.model.ActivityRule">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_id" jdbcType="BIGINT" property="taskId" />
+    <result column="event" jdbcType="VARCHAR" property="event" />
+    <result column="rule_value" jdbcType="VARCHAR" property="ruleValue" />
+    <result column="priority" jdbcType="TINYINT" property="priority" />
+    <result column="awardee_type" jdbcType="TINYINT" property="awardeeType" />
+    <result column="send_award_times" jdbcType="TINYINT" property="sendAwardTimes" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="is_sms_notice" jdbcType="CHAR" property="isSmsNotice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, task_id, event, rule_value, priority, awardee_type, send_award_times, create_by, 
+    create_time, update_by, update_time, is_delete, is_sms_notice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from activity_rule
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from activity_rule
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.he.study.mybatis.entity.model.ActivityRule">
+    insert into activity_rule (id, task_id, event, 
+      rule_value, priority, awardee_type, 
+      send_award_times, create_by, create_time, 
+      update_by, update_time, is_delete, 
+      is_sms_notice)
+    values (#{id,jdbcType=INTEGER}, #{taskId,jdbcType=BIGINT}, #{event,jdbcType=VARCHAR}, 
+      #{ruleValue,jdbcType=VARCHAR}, #{priority,jdbcType=TINYINT}, #{awardeeType,jdbcType=TINYINT}, 
+      #{sendAwardTimes,jdbcType=TINYINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=CHAR}, 
+      #{isSmsNotice,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.he.study.mybatis.entity.model.ActivityRule">
+    insert into activity_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="event != null">
+        event,
+      </if>
+      <if test="ruleValue != null">
+        rule_value,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="awardeeType != null">
+        awardee_type,
+      </if>
+      <if test="sendAwardTimes != null">
+        send_award_times,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="isSmsNotice != null">
+        is_sms_notice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=BIGINT},
+      </if>
+      <if test="event != null">
+        #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleValue != null">
+        #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="awardeeType != null">
+        #{awardeeType,jdbcType=TINYINT},
+      </if>
+      <if test="sendAwardTimes != null">
+        #{sendAwardTimes,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="isSmsNotice != null">
+        #{isSmsNotice,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.he.study.mybatis.entity.model.ActivityRule">
+    update activity_rule
+    <set>
+      <if test="taskId != null">
+        task_id = #{taskId,jdbcType=BIGINT},
+      </if>
+      <if test="event != null">
+        event = #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleValue != null">
+        rule_value = #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="awardeeType != null">
+        awardee_type = #{awardeeType,jdbcType=TINYINT},
+      </if>
+      <if test="sendAwardTimes != null">
+        send_award_times = #{sendAwardTimes,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="isSmsNotice != null">
+        is_sms_notice = #{isSmsNotice,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.he.study.mybatis.entity.model.ActivityRule">
+    update activity_rule
+    set task_id = #{taskId,jdbcType=BIGINT},
+      event = #{event,jdbcType=VARCHAR},
+      rule_value = #{ruleValue,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=TINYINT},
+      awardee_type = #{awardeeType,jdbcType=TINYINT},
+      send_award_times = #{sendAwardTimes,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      is_sms_notice = #{isSmsNotice,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

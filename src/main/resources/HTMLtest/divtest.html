@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body onclick="alert('the bubbling doesnt reach here')">
+<button onclick="event.stopPropagation()">Click me</button>
+
+<form onclick="alert('form')">FORM
+    <div onclick="event.preventDefault()">DIV
+        <p onclick="alert('p')">P</p>
+    </div>
+</form>
+
+<div style="width: 400px;height: 400px;background-color: #678678;font:3em bold;" id="outDiv">
+    out
+    <div style="width: 200px;height: 200px;margin: 50px;background-color: #eaceac;font:1em bold;" id="inDiv">in</div>
+</div>
+</body>
+<script type="text/javascript">
+    inDiv.addEventListener('click',function(e){
+        alert('in');
+        e.stopPropagation();//终止事件冒泡
+    },false);
+    outDiv.addEventListener('click',function(e){
+        alert('out');
+    },false);
+</script>
+</html>
