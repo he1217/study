@@ -30,12 +30,17 @@ public class TestLambda1 {
 			
 		});
 	}
-	
+
 	//现在的 Lambda 表达式
 	@Test
 	public void test2(){
 		Comparator<String> com = (x, y) -> Integer.compare(x.length(), y.length());
 		TreeSet<String> ts = new TreeSet<>(com);
+		try {
+			 Class.forName("Employee");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	List<Employee> emps = Arrays.asList(

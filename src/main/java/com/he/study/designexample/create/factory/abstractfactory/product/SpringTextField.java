@@ -1,4 +1,7 @@
-package com.he.study.designexample.create.factory.abstractfactory;
+package com.he.study.designexample.create.factory.abstractfactory.product;
+
+import com.he.study.designexample.create.factory.abstractfactory.TextField;
+
 /**
  *  @Description SpringTextField.java spring文本框:具体产品
  *  @ClassName SpringTextField

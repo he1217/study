@@ -1,4 +1,4 @@
-package com.james.cache.basic;
+package com.he.excise.redis.article.basic;
 /**
 * 常量类
 */

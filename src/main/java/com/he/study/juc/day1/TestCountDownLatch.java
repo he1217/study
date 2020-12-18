@@ -22,6 +22,7 @@ public class TestCountDownLatch {
 		} catch (InterruptedException e) {
 		}
 
+
 		long end = System.currentTimeMillis();
 
 		System.out.println("耗费时间为：" + (end - start));

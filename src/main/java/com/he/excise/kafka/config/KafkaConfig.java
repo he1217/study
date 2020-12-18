@@ -1,6 +1,6 @@
-package com.xkcoding.mq.kafka.config;
+package com.he.excise.kafka.config;
 
-import com.xkcoding.mq.kafka.constants.KafkaConsts;
+import com.he.excise.kafka.constants.KafkaConsts;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

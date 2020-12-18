@@ -37,7 +37,8 @@ public class WeeklyLog implements Cloneable {
 
     public String getContent() {
         return (this.content);
-    } //使用clone()方法实现浅克隆
+    }
+    //使用clone()方法实现浅克隆
 
     @Override
     public WeeklyLog clone() {

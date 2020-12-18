@@ -18,6 +18,7 @@ public class Demo {
         System.out.println(str1 == str3);
 
         System.out.println(str1 == str4);
+        System.out.println(str1.hashCode()+"    str4:"+str4.hashCode());
 
         str2 += "e";
 

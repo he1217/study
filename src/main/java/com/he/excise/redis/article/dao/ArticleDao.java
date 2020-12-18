@@ -1,4 +1,4 @@
-package com.james.cache.dao;
+package com.he.excise.redis.article.dao;
 
 import java.util.List;
 import java.util.Map;

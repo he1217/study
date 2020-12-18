@@ -1,4 +1,4 @@
-package com.he.excise.redis;
+package com.he.excise.redis.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

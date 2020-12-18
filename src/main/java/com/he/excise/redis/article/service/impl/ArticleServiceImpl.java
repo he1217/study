@@ -1,14 +1,14 @@
 
-package com.james.cache.service.impl;
+package com.he.excise.redis.article.service.impl;
 
 import java.util.List;
 import java.util.Map;
 
+import com.he.excise.redis.article.dao.ArticleDao;
+import com.he.excise.redis.article.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.james.cache.dao.ArticleDao;
-import com.james.cache.service.ArticleService;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {

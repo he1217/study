@@ -1,10 +1,10 @@
-package com.james.cache.service;
+package com.he.excise.redis.article.service;
 
 import java.util.List;
 import java.util.Map;
 
 public interface RedisArticleService {
-	  public String postArticle(String title, String content,String link, String userId);
+	  public String postArticle(String title, String content, String link, String userId);
 	  public Map<String, String> hgetAll(String key);
 	  public void articleVote(String userId, String articleId);
 	  public String hget(String key, String votes);

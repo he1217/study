@@ -1,4 +1,6 @@
-package com.he.study.designexample.create.factory.abstractfactory;
+package com.he.study.designexample.create.factory.abstractfactory.product;
+
+import com.he.study.designexample.create.factory.abstractfactory.Button;
 
 public class SummerButton implements Button {
     @Override

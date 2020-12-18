@@ -21,7 +21,7 @@ public class TestCopyOnWriteArrayList {
 
 class HelloThread implements Runnable{
 	
-//	private static List<String> list = Collections.synchronizedList(new ArrayList<String>());
+//	private static List<String> list = Collections.synchronizedList(new TestArrayList<String>());
 	
 	private static CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
 	

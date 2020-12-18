@@ -1,6 +1,6 @@
 
 
-package com.james.cache.service;
+package com.he.excise.redis.article.service;
 
 import java.util.List;
 import java.util.Map;

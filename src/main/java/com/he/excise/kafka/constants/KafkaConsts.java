@@ -1,4 +1,4 @@
-package com.xkcoding.mq.kafka.constants;
+package com.he.excise.kafka.constants;
 
 /**
  * <p>

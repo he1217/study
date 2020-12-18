@@ -1,4 +1,4 @@
-package com.james.cache.basic;
+package com.he.excise.redis.article.basic;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.ZParams;
@@ -16,9 +16,9 @@ public class OneArticleVote {
 
     public void run() {
     	//连接redis
-        Jedis jedis = new Jedis("192.168.1.111");
+        Jedis jedis = new Jedis("101.133.174.213");
         //访问redis的密码
-        jedis.auth("12345678");
+        jedis.auth("123456789");
         //选择数据库号
         jedis.select(15);
         //发布文章，返回文章ID

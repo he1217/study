@@ -1,11 +1,51 @@
 spring:
+  #mysql配置
   datasource:
     url: jdbc:mysql://101.133.174.213:3306/drools?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: he123
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  # redis配置
+  redis:
+    database: 0
+    host: 101.133.174.213
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 300
+    #kafka配置
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: spring-boot-demo
+      # 手动提交
+      enable-auto-commit: false
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 60000
+    listener:
+      log-container-config: false
+      concurrency: 5
+      # 手动提交
+      ack-mode: manual_immediate
 
+#mybatis配置
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.he.study.mybatis.entity
+
+

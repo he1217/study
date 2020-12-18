@@ -1,9 +1,16 @@
-package com.he.excise.newcode.topn.struct;/**
- *  @Description TODO
- *  @ClassName 
- *  @author he.xl
- *  @Date 2020/12/16 15:48
- * 
+package com.he.excise.newcode.topn.struct;
+
+/**
+ * @author he.xl
+ * @Description TODO
+ * @ClassName
+ * @Date 2020/12/16 15:48
  */
 public class ListNode {
+    int val;
+    public ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
 }

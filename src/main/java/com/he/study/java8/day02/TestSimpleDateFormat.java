@@ -29,7 +29,7 @@ public class TestSimpleDateFormat {
 
 		ExecutorService pool = Executors.newFixedThreadPool(10);
 		
-		List<Future<Date>> results = new ArrayList<>();
+		List<Future<Date>> results = new TestArrayList<>();
 		
 		for (int i = 0; i < 10; i++) {
 			results.add(pool.submit(task));
@@ -53,7 +53,7 @@ public class TestSimpleDateFormat {
 
 		ExecutorService pool = Executors.newFixedThreadPool(10);
 		
-		List<Future<Date>> results = new ArrayList<>();
+		List<Future<Date>> results = new TestArrayList<>();
 		
 		for (int i = 0; i < 10; i++) {
 			results.add(pool.submit(task));

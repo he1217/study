@@ -1,4 +1,4 @@
-package com.james.cache.service.impl;
+package com.he.excise.redis.article.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,11 +8,11 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import com.he.excise.redis.article.basic.Constants;
+import com.he.excise.redis.article.service.RedisArticleService;
+import com.he.excise.redis.utils.JedisUtils;
 import org.springframework.stereotype.Service;
 
-import com.james.cache.basic.Constants;
-import com.james.cache.service.RedisArticleService;
-import com.james.cache.utils.JedisUtils;
 
 /**
 * 文章发布使用redis技术
@@ -21,14 +21,13 @@ import com.james.cache.utils.JedisUtils;
 * @author 【享学课堂】 往期视频依娜老师 ：2470523467
 */
 @Service
-public class RedisArticleServiceImpl implements RedisArticleService{
+public class RedisArticleServiceImpl implements RedisArticleService {
 
 
 	@Resource
 	private JedisUtils jedis;
 	/**
 	* 文章提交发布
-	* @param 标题  内容  链接  用户ID
 	* @return 文章的ID
 	*/
 	@Override

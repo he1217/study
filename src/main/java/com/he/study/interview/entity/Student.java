@@ -1,16 +1,13 @@
-package com.he.study.interview.entity_Test;
+package com.he.study.interview.entity;
 
+import lombok.Data;
+
+@Data
 public class Student {
-    Student(String name){
+    public Student(String name){
         this.name = name;
     }
     private String name;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }
