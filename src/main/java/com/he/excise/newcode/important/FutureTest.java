@@ -1,9 +1,8 @@
-package com.he.excise.classic;
+package com.he.excise.newcode.important;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.function.Supplier;
 
 /**
  * @author he.xl
