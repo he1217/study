@@ -27,7 +27,7 @@ public class JedisUtils {
     private String auth = "12345678";
 
     /**
-     * 
+     *
      * @description 传入ip和端口号构建redis 连接
      * @author he.xuelong
      * @date 2020/5/8 16:42
@@ -419,7 +419,7 @@ public class JedisUtils {
      *
      *  key
      *  integer
-     * 
+     *
      */
     public Long incrBy(String key, Long integer) {
         Jedis jedis = null;
@@ -819,29 +819,6 @@ public class JedisUtils {
         return res;
     }
 
-    /**
-     * <p>
-     * 通过key在list指定的位置之前或者之 添加字符串元
-     * </p>
-     *
-     *  where LIST_POSITION枚举类型
-     *  pivot list里面的value
-     *  value 添加的value
-     */
-    public Long linsert(String key, LIST_POSITION where, String pivot, String value) {
-        Jedis jedis = null;
-        Long res = null;
-        try {
-            jedis = pool.getResource();
-            res = jedis.linsert(key, where, pivot, value);
-        } catch (Exception e) {
-            jedis.close();
-            e.printStackTrace();
-        } finally {
-            returnResource(pool, jedis);
-        }
-        return res;
-    }
 
     /**
      * <p>
@@ -919,7 +896,7 @@ public class JedisUtils {
      * 通过key从list的头部删除一个value,并返回该value
      * </p>
      *
-     * 
+     *
      */
     public String lpop(String key) {
         Jedis jedis = null;
@@ -942,7 +919,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public String rpop(String key) {
         Jedis jedis = null;
@@ -969,7 +946,7 @@ public class JedisUtils {
      *
      *  srckey
      *  dstkey
-     * 
+     *
      */
     public String rpoplpush(String srckey, String dstkey) {
         Jedis jedis = null;
@@ -1016,7 +993,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public Long llen(String key) {
         Jedis jedis = null;
@@ -1044,7 +1021,7 @@ public class JedisUtils {
      *  key
      *  start
      *  end
-     * 
+     *
      */
     public List<String> lrange(String key, long start, long end) {
         Jedis jedis = null;
@@ -1129,7 +1106,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public String spop(String key) {
         Jedis jedis = null;
@@ -1155,7 +1132,7 @@ public class JedisUtils {
      * </p>
      *
      *  keys 可以使一个string 则返回set中所有的value 也可以是string数组
-     * 
+     *
      */
     public Set<String> sdiff(String... keys) {
         Jedis jedis = null;
@@ -1182,7 +1159,7 @@ public class JedisUtils {
      *
      *  dstkey 差集存入的key
      *  keys   可以使一个string 则返回set中所有的value 也可以是string数组
-     * 
+     *
      */
     public Long sdiffstore(String dstkey, String... keys) {
         Jedis jedis = null;
@@ -1205,7 +1182,7 @@ public class JedisUtils {
      * </p>
      *
      *  keys 可以使一个string 也可以是个string数组
-     * 
+     *
      */
     public Set<String> sinter(String... keys) {
         Jedis jedis = null;
@@ -1229,7 +1206,7 @@ public class JedisUtils {
      *
      *  dstkey
      *  keys   可以使一个string 也可以是个string数组
-     * 
+     *
      */
     public Long sinterstore(String dstkey, String... keys) {
         Jedis jedis = null;
@@ -1252,7 +1229,7 @@ public class JedisUtils {
      * </p>
      *
      *  keys 可以使一个string 也可以是个string数组
-     * 
+     *
      */
     public Set<String> sunion(String... keys) {
         Jedis jedis = null;
@@ -1276,7 +1253,7 @@ public class JedisUtils {
      *
      *  dstkey
      *  keys   可以使一个string 也可以是个string数组
-     * 
+     *
      */
     public Long sunionstore(String dstkey, String... keys) {
         Jedis jedis = null;
@@ -1301,7 +1278,7 @@ public class JedisUtils {
      *  srckey 要移除的
      *  dstkey 添加
      *  member set中的value
-     * 
+     *
      */
     public Long smove(String srckey, String dstkey, String member) {
         Jedis jedis = null;
@@ -1324,7 +1301,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public Long scard(String key) {
         Jedis jedis = null;
@@ -1348,7 +1325,7 @@ public class JedisUtils {
      *
      *  key
      *  member
-     * 
+     *
      */
     public Boolean sismember(String key, String member) {
         Jedis jedis = null;
@@ -1371,7 +1348,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public String srandmember(String key) {
         Jedis jedis = null;
@@ -1394,7 +1371,7 @@ public class JedisUtils {
      * </p>
      *
      *  key
-     * 
+     *
      */
     public Set<String> smembers(String key) {
         Jedis jedis = null;
@@ -1416,7 +1393,7 @@ public class JedisUtils {
      *
      *  key
      *  scoreMembers
-     * 
+     *
      */
     public Long zadd(String key, Map<String, Double> scoreMembers) {
         Jedis jedis = null;
@@ -1439,7 +1416,7 @@ public class JedisUtils {
      *  key
      *  score
      *  member
-     * 
+     *
      */
     public Long zadd(String key, double score, String member) {
         Jedis jedis = null;
@@ -1461,7 +1438,7 @@ public class JedisUtils {
      *
      *  key
      *  members 可以使一个string 也可以是个string数组
-     * 
+     *
      */
     public Long zrem(String key, String... members) {
         Jedis jedis = null;
@@ -1484,7 +1461,7 @@ public class JedisUtils {
      *  key
      *  score
      *  member
-     * 
+     *
      */
     public Double zincrby(String key, double score, String member) {
         Jedis jedis = null;
@@ -1521,7 +1498,7 @@ public class JedisUtils {
      *
      *  key
      *  member
-     * 
+     *
      */
     public Long zrank(String key, String member) {
         Jedis jedis = null;
@@ -1543,7 +1520,7 @@ public class JedisUtils {
      *
      *  key
      *  member
-     * 
+     *
      */
     public Long zrevrank(String key, String member) {
         Jedis jedis = null;
@@ -1566,7 +1543,7 @@ public class JedisUtils {
      *  key
      *  start
      *  end
-     * 
+     *
      */
     public Set<String> zrevrange(String key, long start, long end) {
         Jedis jedis = null;
@@ -1589,7 +1566,7 @@ public class JedisUtils {
      *  key
      *  max
      *  min
-     * 
+     *
      */
     public Set<String> zrangebyscore(String key, String max, String min) {
         Jedis jedis = null;
@@ -1612,7 +1589,7 @@ public class JedisUtils {
      *  key
      *  max
      *  min
-     * 
+     *
      */
     public Set<String> zrangeByScore(String key, double max, double min) {
         Jedis jedis = null;
@@ -1635,7 +1612,7 @@ public class JedisUtils {
      *  key
      *  min
      *  max
-     * 
+     *
      */
     public Long zcount(String key, String min, String max) {
         Jedis jedis = null;
@@ -1656,7 +1633,7 @@ public class JedisUtils {
      * 通过key返回zset中的value个数
      *
      *  key
-     * 
+     *
      */
     public Long zcard(String key) {
         Jedis jedis = null;
@@ -1678,7 +1655,7 @@ public class JedisUtils {
      *
      *  key
      *  member
-     * 
+     *
      */
     public Double zscore(String key, String member) {
         Jedis jedis = null;
@@ -1701,7 +1678,7 @@ public class JedisUtils {
      *  key
      *  start
      *  end
-     * 
+     *
      */
     public Long zremrangeByRank(String key, long start, long end) {
         Jedis jedis = null;
@@ -1724,7 +1701,7 @@ public class JedisUtils {
      *  key
      *  start
      *  end
-     * 
+     *
      */
     public Long zremrangeByScore(String key, double start, double end) {
         Jedis jedis = null;
@@ -1745,7 +1722,7 @@ public class JedisUtils {
      * 返回满足pattern表达式的有key keys(*) 返回有的key
      *
      *  pattern
-     * 
+     *
      */
     public Set<String> keys(String pattern) {
         Jedis jedis = null;
