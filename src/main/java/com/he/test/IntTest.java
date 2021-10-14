@@ -17,7 +17,11 @@ public class IntTest {
 
 
     public static void main(String[] args) {
-
+        String s = "2c3f424a03abf8150cb202238774f89c";
+        String s1 = "1d15be75cb5916a150902611950d97f9";
+        List<Integer> a = new ArrayList<>();
+        a.add(1);
+       
     }
     @Test
     public  void test(){

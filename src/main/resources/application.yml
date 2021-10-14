@@ -21,27 +21,42 @@ spring:
     timeout: 300
     #kafka配置
   kafka:
-    bootstrap-servers: localhost:9092
     producer:
-      retries: 0
-      batch-size: 16384
-      buffer-memory: 33554432
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      bootstrap-servers: 10.161.55.1:9092,10.161.55.2:9092,10.161.55.3:9092,10.161.55.4:9092,10.161.55.5:9092,10.161.55.6:9092,10.161.11.232:9092,10.161.11.233:9092,10.161.11.234:9092,10.161.11.15:9092,10.161.11.25:9092,10.161.11.26:9092
+      batch-size: 16785                                   #一次最多发送数据量
+      retries: 0                                          #发送失败后的重复发送次数
+      buffer-memory: 33554432                             #32M批处理缓冲区
+      linger: 1
+      sasl:
+        kafkaAuth: false
+        mechanism: PLAIN
+        jaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule
+        username: 2wAWQz/MELyo7u8iNSRJGA==
+        password: Olm/53feWTe+pGAR0N6Vsw==
     consumer:
-      group-id: spring-boot-demo
-      # 手动提交
-      enable-auto-commit: false
-      auto-offset-reset: latest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      properties:
-        session.timeout.ms: 60000
+      bootstrap-servers: 10.161.55.1:9092,10.161.55.2:9092,10.161.55.3:9092,10.161.55.4:9092,10.161.55.5:9092,10.161.55.6:9092,10.161.11.232:9092,10.161.11.233:9092,10.161.11.234:9092,10.161.11.15:9092,10.161.11.25:9092,10.161.11.26:9092
+      auto-offset-reset: latest                           #最早未被消费的offset earliest
+      max-poll-records: 1000                            #批量消费一次最大拉取的数据量
+      enable-auto-commit: false                           #是否开启自动提交
+      auto-commit-interval: 28000                         #自动提交的间隔时间
+      session-timeout: 6000                              #连接超时时间
+      max-partition-fetch-bytes: 104857600
+      heartbeat-interval-ms: 2000
+      fetch-min-bytes: 2108576
+      fetch-max-wait-ms: 1000
+      sasl:
+        kafkaAuth: false
+        mechanism: PLAIN
+        jaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule
+        username: 2wAWQz/MELyo7u8iNSRJGA==
+        password: Olm/53feWTe+pGAR0N6Vsw==
     listener:
-      log-container-config: false
-      concurrency: 5
-      # 手动提交
-      ack-mode: manual_immediate
+      batch-listener: true                                #是否开启批量消费，true表示批量消费
+      concurrencys: 4,5,3,1,1                             #设置消费的线程数分别对应0span、1spanchunk、2stat、3sql、4agent
+      poll-timeout: 5000                                  #如果消息队列中没有消息，等待timeout毫秒后，调用poll()方法。如果队列中有消息，立即消费消息，每次消费的消息的多少可以通过max.poll.records配置。
+      span-group-id1: callspanklist-spanserverlist-201026
+      span-group-id2: callspanklist-spanbolist-210531
+      span-topic: tianyan-span-other
 
 #mybatis配置
 mybatis:

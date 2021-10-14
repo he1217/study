@@ -5,9 +5,9 @@ package com.he.study.designexample.action.strategy;
  *  @Description main
  *  @author he.xuelong
  *  @Date 2020年03月12日 18:41
- * 
+ *
  */
-public class main {
+public class MainApp {
     public static void main(String[] args) {
         Context context = new Context();
         context.setStrategy(new Subtract());

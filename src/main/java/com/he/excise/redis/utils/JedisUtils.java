@@ -1480,7 +1480,7 @@ public class JedisUtils {
 
     public long hincrBy(String key, String field, long value) {
         Jedis jedis = null;
-        long res = 0l;
+        long res = 0L;
         try {
             jedis = pool.getResource();
             res = jedis.hincrBy(key, field, value);

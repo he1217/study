@@ -30,8 +30,8 @@ import java.util.concurrent.locks.ReentrantLock;
     }
     @Override
     public boolean containsKey(Object key) {
+        lock.lock();
         try {
-            lock.lock();
             return super.containsKey(key);
         } finally {
             lock.unlock();
@@ -41,8 +41,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
     @Override
     public V get(Object key) {
+        lock.lock();
         try {
-            lock.lock();
             return super.get(key);
         } finally {
             lock.unlock();
@@ -51,26 +51,28 @@ import java.util.concurrent.locks.ReentrantLock;
 
     @Override
     public V put(K key, V value) {
+        lock.lock();
         try {
-            lock.lock();
             return super.put(key, value);
         } finally {
             lock.unlock();
         }
     }
 
+    @Override
     public int size() {
+        lock.lock();
         try {
-            lock.lock();
             return super.size();
         } finally {
             lock.unlock();
         }
     }
 
+    @Override
     public void clear() {
+        lock.lock();
         try {
-            lock.lock();
             super.clear();
         } finally {
             lock.unlock();
@@ -89,11 +91,14 @@ import java.util.concurrent.locks.ReentrantLock;
     public static void main(String[] args) {
         LRULinkedHashMap<Integer,String> lru = new LRULinkedHashMap<Integer,String>(3);
 
-        lru.put(1, "a");    // 1:a
+        // 1:a
+        lru.put(1, "a");
         System.out.println(lru.toString());
-        lru.put(2, "b");    // 2:b 1:a
+        // 2:b 1:a
+        lru.put(2, "b");
         System.out.println(lru.toString());
-        lru.put(3, "c");    // 3:c 2:b 1:a
+        // 3:c 2:b 1:a
+        lru.put(3, "c");
         System.out.println(lru.toString());
         lru.put(4, "d");    // 4:d 3:c 2:b
         System.out.println(lru.toString());

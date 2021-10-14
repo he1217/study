@@ -94,7 +94,7 @@ public class OneArticleVote {
         //将投票的用户加入到键为voted:1的集合中，表示该用户已投过票了
         if (jedis.sadd("voted:" + articleId, user) == 1) {
             jedis.zincrby("score:", VOTE_SCORE, article);//分值加1
-            jedis.hincrBy(article, "votes", 1l);//投票数加1
+            jedis.hincrBy(article, "votes", 1L);//投票数加1
         }
     }
 

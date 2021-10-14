@@ -1,9 +1,5 @@
 package com.he.excise.newcode.important;
 
-import com.he.study.designexample.action.strategy.main;
-
-import java.util.Arrays;
-
 /**
  * @author he.xl
  * @Description TODO
@@ -39,11 +35,7 @@ public class QuickSort {
 
     }
 
-//    private static void swap(int[] arr, int i, int j) {
-//        int tmp = arr[i];
-//        arr[i] = arr[j];
-//        arr[j] = tmp;
-//    }
+
 
     public static void main(String[] args) {
         int[] ints = {3, 2, 1, 5, 2,6};

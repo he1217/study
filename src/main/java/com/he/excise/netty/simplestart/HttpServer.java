@@ -22,8 +22,10 @@ import java.net.InetSocketAddress;
  */
 public class HttpServer {
     public void start(int port) throws Exception {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();//主
-        EventLoopGroup workerGroup = new NioEventLoopGroup();//从
+        //主
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        //从
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)

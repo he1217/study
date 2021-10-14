@@ -8,7 +8,7 @@ import java.util.List;
  *  @ClassName ArraysUtils
  *  @author he.xuelong
  *  @Date 2020年05月20日 15:51
- * 
+ *
  */
 public class ArraysUtils {
     public static void main(String[] args) {
@@ -127,6 +127,7 @@ public class ArraysUtils {
         System.out.println();
         // copyOfRange将指定数组的指定范围复制到新数组中
         int j[] = Arrays.copyOfRange(h, 6, 11);
+
         System.out.println("Arrays.copyOfRange(h, 6, 11)：");
         // 输出结果66600(h数组只有9个元素这里是从索引6到索引11复制所以不足的就为0)
         for (int j2 : j) {
@@ -136,5 +137,5 @@ public class ArraysUtils {
         System.out.println();
 
     }
-    
+
 }
